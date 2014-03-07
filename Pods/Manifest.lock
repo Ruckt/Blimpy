@@ -1,0 +1,13 @@
+PODS:
+  - PMAudioRecorderViewController (0.5):
+    - UIImage+BlurredFrame
+  - UIImage+BlurredFrame (0.0.4)
+
+DEPENDENCIES:
+  - PMAudioRecorderViewController
+
+SPEC CHECKSUMS:
+  PMAudioRecorderViewController: 8112c86091224bba728b404ea2603d2b56ab8807
+  UIImage+BlurredFrame: 9f29c4796105b50742abc31a69e18e37afb080a0
+
+COCOAPODS: 0.29.0
