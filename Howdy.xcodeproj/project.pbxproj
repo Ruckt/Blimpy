@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E234FC4F18D3832200C0B4F3 /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */; };
 		E2A6A46A18C55304003D42C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A6A46918C55304003D42C9 /* Foundation.framework */; };
 		E2A6A46C18C55304003D42C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A6A46B18C55304003D42C9 /* CoreGraphics.framework */; };
 		E2A6A46E18C55304003D42C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A6A46D18C55304003D42C9 /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		37797A41DCAA4EFC96595AF6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E234FC4D18D3832200C0B4F3 /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorder.h; sourceTree = "<group>"; };
+		E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
 		E2A6A46618C55304003D42C9 /* Howdy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Howdy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A6A46918C55304003D42C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E2A6A46B18C55304003D42C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +102,8 @@
 				E2A6A49E18C5562B003D42C9 /* Main.storyboard */,
 				E2A6A4A018C5594E003D42C9 /* HowdyTalkViewController.h */,
 				E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */,
+				E234FC4D18D3832200C0B4F3 /* AudioRecorder.h */,
+				E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */,
 				E2AF11A318CA512200E6585E /* VoiceMessage.h */,
 				E2AF11A418CA512200E6585E /* VoiceMessage.m */,
 				E2A6A47118C55304003D42C9 /* Howdy */,
@@ -305,6 +310,7 @@
 			files = (
 				E2A6A47C18C55304003D42C9 /* AppDelegate.m in Sources */,
 				E2A6A47818C55304003D42C9 /* main.m in Sources */,
+				E234FC4F18D3832200C0B4F3 /* AudioRecorder.m in Sources */,
 				E2A6A4A218C5594E003D42C9 /* HowdyTalkViewController.m in Sources */,
 				E2AF11A518CA512200E6585E /* VoiceMessage.m in Sources */,
 				E2A6A47F18C55304003D42C9 /* Howdy.xcdatamodeld in Sources */,

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>32410DD0-2364-4338-997B-9E266EEEDBDA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Howdy</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E2D3B267-660E-4EC4-9FED-29B310A4C080</key>
+		<string>ssh://github.com/Ruckt/Blimpy.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Howdy.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E2D3B267-660E-4EC4-9FED-29B310A4C080</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Ruckt/Blimpy.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E2D3B267-660E-4EC4-9FED-29B310A4C080</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E2D3B267-660E-4EC4-9FED-29B310A4C080</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Howdy</string>
+		</dict>
+	</array>
+</dict>
+</plist>
