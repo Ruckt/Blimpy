@@ -25,22 +25,20 @@ typedef void (^AudioNoteRecorderFinishBlock) (BOOL wasRecordingTaken, NSURL *rec
 @end
 
 
-//UI pressed gesture recognizer
+//Look this up:   UI pressed gesture recognizer
 
 
 @interface HowdyTalkViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property (nonatomic, weak) id<AudioNoteRecorderDelegate> delegate;
-
 @property (nonatomic, copy) AudioNoteRecorderFinishBlock finishedBlock;
 
 
 - (IBAction)howdyButtonPressed:(UIButton *)sender;
 - (IBAction)playBackButtonPressed:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *recordingLengthLabel;
 
 
-+ (id) showRecorderWithMasterViewController:(UIViewController *) masterViewController withDelegate:(id<AudioNoteRecorderDelegate>) delegate;
-+ (id) showRecorderMasterViewController:(UIViewController *) masterViewController withFinishedBlock:(AudioNoteRecorderFinishBlock) finishedBlock;
 
 
 
