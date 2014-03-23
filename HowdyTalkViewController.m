@@ -40,6 +40,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -56,26 +57,26 @@
 #pragma mark - actions
 
 
-- (void) done:(UIButton *) sender
-{
-    if (_recorder && _recorder.isRecording == NO) {
-        
-        [UIView animateWithDuration:0.5 animations:^{
-            _controlsBg.center = CGPointMake(_controlsBg.center.x, _controlsBg.center.y + self.view.frame.size.height);
-        } completion:^(BOOL finished) {
-            [self dismissViewControllerAnimated:YES completion:^{
-                if (self.delegate) {
-                    
-                    ////****** Line below may contain something of recording location/file
-                    [self.delegate audioNoteRecorderDidTapDone:self withRecordedURL:_recorder.url];
-                }
-                if (self.finishedBlock) {
-                    self.finishedBlock ( YES, _recorder.url );
-                }
-            }];
-        }];
-    }
-}
+//- (void) done:(UIButton *) sender
+//{
+//    if (_recorder && _recorder.isRecording == NO) {
+//        
+//        [UIView animateWithDuration:0.5 animations:^{
+//            _controlsBg.center = CGPointMake(_controlsBg.center.x, _controlsBg.center.y + self.view.frame.size.height);
+//        } completion:^(BOOL finished) {
+//            [self dismissViewControllerAnimated:YES completion:^{
+//                if (self.delegate) {
+//                    
+//                    ////****** Line below may contain something of recording location/file
+//                    [self.delegate audioNoteRecorderDidTapDone:self withRecordedURL:_recorder.url];
+//                }
+//                if (self.finishedBlock) {
+//                    self.finishedBlock ( YES, _recorder.url );
+//                }
+//            }];
+//        }];
+//    }
+//}
 
 - (IBAction)howdyButtonPressed:(UIButton *)sender{
     
@@ -126,6 +127,53 @@
     [_player play];
     NSLog(@"duration: %f", _player.duration);
 }
+
+- (IBAction)longPressed:(UILongPressGestureRecognizer *)gesture  {
+    NSLog(@"Gesture state entered");
+    if(UIGestureRecognizerStateBegan == gesture.state) {
+        NSLog(@"Gesture state began");
+        
+        
+        NSDictionary* recorderSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [NSNumber numberWithInt:kAudioFormatAppleIMA4],AVFormatIDKey,
+                                          [NSNumber numberWithInt:44100],AVSampleRateKey,
+                                          [NSNumber numberWithInt:1],AVNumberOfChannelsKey,
+                                          [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
+                                          [NSNumber numberWithBool:NO],AVLinearPCMIsBigEndianKey,
+                                          [NSNumber numberWithBool:NO],AVLinearPCMIsFloatKey,
+                                          nil];
+        NSError* error = nil;
+        self.recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL URLWithString:[NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"]]  settings:recorderSettings error:&error];
+        
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error: nil];
+        [[AVAudioSession sharedInstance] setActive: YES error: nil];
+        UInt32 doChangeDefault = 1;
+        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefault), &doChangeDefault);
+        
+        self.recorder.delegate = self;
+        [self.recorder record];
+        self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(recordingTimerUpdate:) userInfo:nil repeats:YES];
+        [_recordingTimer fire];
+        
+    }
+    
+    if(UIGestureRecognizerStateChanged == gesture.state) {
+        NSLog(@"Gesture state changed");
+    }
+    
+    if(UIGestureRecognizerStateEnded == gesture.state) {
+        NSLog(@"Gesture state ended");
+        
+        [self.recorder stop];
+        [self.recordingTimer invalidate];
+        self.recordingTimer = nil;
+        NSLog(@"%@", self.recorder.url);
+
+     }
+    
+    
+}
+
 
 - (void) recordingTimerUpdate:(id) sender
 {

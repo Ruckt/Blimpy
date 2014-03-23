@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E234FC4F18D3832200C0B4F3 /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */; };
+		E26B0F5418DCC1F500687701 /* Framework in Resources */ = {isa = PBXBuildFile; fileRef = E26B0F5318DCC1F500687701 /* Framework */; };
 		E2A6A46A18C55304003D42C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A6A46918C55304003D42C9 /* Foundation.framework */; };
 		E2A6A46C18C55304003D42C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A6A46B18C55304003D42C9 /* CoreGraphics.framework */; };
 		E2A6A46E18C55304003D42C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A6A46D18C55304003D42C9 /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 		37797A41DCAA4EFC96595AF6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E234FC4D18D3832200C0B4F3 /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorder.h; sourceTree = "<group>"; };
 		E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
+		E26B0F5318DCC1F500687701 /* Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Framework; sourceTree = "<group>"; };
 		E2A6A46618C55304003D42C9 /* Howdy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Howdy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A6A46918C55304003D42C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E2A6A46B18C55304003D42C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +128,7 @@
 		E2A6A46818C55304003D42C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E26B0F5318DCC1F500687701 /* Framework */,
 				E2A6A46918C55304003D42C9 /* Foundation.framework */,
 				E2A6A46B18C55304003D42C9 /* CoreGraphics.framework */,
 				E2A6A46D18C55304003D42C9 /* UIKit.framework */,
@@ -257,6 +260,7 @@
 				E2A6A49F18C5562B003D42C9 /* Main.storyboard in Resources */,
 				E2A6A47618C55304003D42C9 /* InfoPlist.strings in Resources */,
 				E2A6A48118C55304003D42C9 /* Images.xcassets in Resources */,
+				E26B0F5418DCC1F500687701 /* Framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
