@@ -10,7 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import <OpenEars/LanguageModelGenerator.h>
 #import <OpenEars/PocketsphinxController.h>
 #import <OpenEars/AcousticModel.h>
 #import <OpenEars/OpenEarsEventsObserver.h>
@@ -28,6 +27,7 @@ typedef void (^AudioNoteRecorderFinishBlock) (BOOL wasRecordingTaken, NSURL *rec
 - (IBAction)howdyButtonPressed:(UIButton *)sender;
 - (IBAction)shareVoiceMail:(UIButton *)sender;
 - (IBAction)playBackButtonPressed:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *heardWordList;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *recordingLengthLabel;

@@ -8,6 +8,7 @@
 
 #import "HowdyTalkViewController.h"
 #import <MessageUI/MessageUI.h>
+#import <OpenEars/LanguageModelGenerator.h>
 
 @interface HowdyTalkViewController () <MFMailComposeViewControllerDelegate>
 
@@ -15,12 +16,6 @@
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, strong) NSTimer *recordingTimer;
-//@property (nonatomic, strong) UIView *controlsBg;
-
-@property LanguageModelGenerator *lmGenerator;
-
-
-
 
 @end
 
@@ -42,13 +37,11 @@
 {
     [super viewDidLoad];
     
-    
-    self.lmGenerator = [[LanguageModelGenerator alloc] init];
 
     
     
-    [self.openEarsEventsObserver setDelegate:self];
-    [self.pocketsphinxController startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO]; }
+    [self openEars];
+}
 
 
 - (void) viewDidAppear:(BOOL)animated
@@ -69,17 +62,14 @@
     
 
     if (sender.selected) {
-        // stop
-        [self.recorder stop];
-        [self.recordingTimer invalidate];
-        self.recordingTimer = nil;
-        NSLog(@"%@", self.recorder.url);
+        [self stopRecording];
     } else {
         [self startRecording];
     }
     sender.selected = !sender.selected;
     
 }
+
 - (IBAction)playBackButtonPressed:(UIButton *)sender
 {
     //    [SimpleAudioPlayer playFile:_recorder.url.description];
@@ -97,7 +87,6 @@
     if(UIGestureRecognizerStateBegan == gesture.state) {
         NSLog(@"Gesture state began");
         [self startRecording];
-    
     }
     
     if(UIGestureRecognizerStateChanged == gesture.state) {
@@ -105,15 +94,8 @@
     
     if(UIGestureRecognizerStateEnded == gesture.state) {
         NSLog(@"Gesture state ended");
-        
-        [self.recorder stop];
-        [self.recordingTimer invalidate];
-        self.recordingTimer = nil;
-        NSLog(@"%@", self.recorder.url);
-
+        [self stopRecording];
      }
-    
-    
 }
 
 - (void) recordingTimerUpdate:(id) sender
@@ -154,8 +136,8 @@
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error: nil];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
-    UInt32 doChangeDefault = 1;
-    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefault), &doChangeDefault);
+   // UInt32 doChangeDefault = 1;
+    //AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefault), &doChangeDefault);
     
     self.recorder.delegate = self;
     [self.recorder record];
@@ -165,6 +147,13 @@
 
 }
 
+-(void) stopRecording
+{
+    [self.recorder stop];
+    [self.recordingTimer invalidate];
+    self.recordingTimer = nil;
+    NSLog(@"%@", self.recorder.url);
+}
 
 
 
@@ -230,12 +219,30 @@
 
 #pragma mark Open Ears
 
+- (PocketsphinxController *)pocketsphinxController {
+	if (pocketsphinxController == nil) {
+		pocketsphinxController = [[PocketsphinxController alloc] init];
+	}
+	return pocketsphinxController;
+}
+
+
+- (OpenEarsEventsObserver *)openEarsEventsObserver {
+	if (openEarsEventsObserver == nil) {
+		openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
+	}
+	return openEarsEventsObserver;
+}
+
+
+
 -(void) openEars
 {
-    NSArray *words = [NSArray arrayWithObjects:@"WORD", @"STATEMENT", @"OTHER WORD", @"A PHRASE", nil];
-    NSString *name = @"NameIWantForMyLanguageModelFiles";
+    LanguageModelGenerator *lmGenerator = [[LanguageModelGenerator alloc] init];
     
-    NSError *err = [self.lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"]];
+    NSArray *words = [NSArray arrayWithObjects:@"RECORD", @"SEND MESSAGE", @"LEROY BROWN", @"SONGZA", @"EDAN", nil];
+    NSString *name = @"NameIWantForMyLanguageModelFiles";
+    NSError *err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"]]; // Change "AcousticModelEnglish" to "AcousticModelSpanish" to create a Spanish language model instead of an English one.
     
     
     NSDictionary *languageGeneratorResults = nil;
@@ -253,21 +260,17 @@
     } else {
         NSLog(@"Error: %@",[err localizedDescription]);
     }
+
+    [self.openEarsEventsObserver setDelegate:self];
+    
+    [self.pocketsphinxController startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO];
+    
+
 }
 
-- (PocketsphinxController *)pocketsphinxController {
-	if (pocketsphinxController == nil) {
-        self.pocketsphinxController = [[PocketsphinxController alloc] init];
-	}
-	return self.pocketsphinxController;
-}
 
-- (OpenEarsEventsObserver *)openEarsEventsObserver {
-	if (openEarsEventsObserver == nil) {
-		openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
-	}
-	return openEarsEventsObserver;
-}
+
+
 
 
 
@@ -277,6 +280,8 @@
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
 	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
+    
+    self.heardWordList.text = (@"%@ \n", hypothesis);
 }
 
 - (void) pocketsphinxDidStartCalibration {
