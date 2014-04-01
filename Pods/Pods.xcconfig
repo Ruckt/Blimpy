@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/PMAudioRecorderViewController" "${PODS_ROOT}/Headers/UIImage+BlurredFrame"
-OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/PMAudioRecorderViewController" "-isystem${PODS_ROOT}/Headers/UIImage+BlurredFrame"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/PMAudioRecorderViewController" "${PODS_ROOT}/Headers/UIImage+BlurredFrame" "${PODS_ROOT}/Headers/UIView+DebugQuickLook"
+OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/PMAudioRecorderViewController" "-isystem${PODS_ROOT}/Headers/UIImage+BlurredFrame" "-isystem${PODS_ROOT}/Headers/UIView+DebugQuickLook"
 OTHER_LDFLAGS = -ObjC -framework AVFoundation
 PODS_ROOT = ${SRCROOT}/Pods

@@ -10,6 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <OpenEars/LanguageModelGenerator.h>
+#import <OpenEars/PocketsphinxController.h>
+#import <OpenEars/AcousticModel.h>
+#import <OpenEars/OpenEarsEventsObserver.h>
 
 
 
@@ -18,21 +22,20 @@
 typedef void (^AudioNoteRecorderFinishBlock) (BOOL wasRecordingTaken, NSURL *recordingURL) ;
 
 
-//Look this up:   UI pressed gesture recognizer
-// UI activity view controller -
+@interface HowdyTalkViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate, OpenEarsEventsObserverDelegate>
 
-
-@interface HowdyTalkViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
-
-@property (nonatomic, copy) AudioNoteRecorderFinishBlock finishedBlock;
-
-
+    
 - (IBAction)howdyButtonPressed:(UIButton *)sender;
+- (IBAction)shareVoiceMail:(UIButton *)sender;
 - (IBAction)playBackButtonPressed:(UIButton *)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *recordingLengthLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *recordingLengthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
+
+@property (strong, nonatomic) PocketsphinxController *pocketsphinxController;
+@property (strong, nonatomic) OpenEarsEventsObserver *openEarsEventsObserver;
 
 
 

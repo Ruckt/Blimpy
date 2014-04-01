@@ -18,3 +18,9 @@
 #define COCOAPODS_VERSION_MINOR_UIImage_BlurredFrame 0
 #define COCOAPODS_VERSION_PATCH_UIImage_BlurredFrame 4
 
+// UIView+DebugQuickLook
+#define COCOAPODS_POD_AVAILABLE_UIView_DebugQuickLook
+#define COCOAPODS_VERSION_MAJOR_UIView_DebugQuickLook 1
+#define COCOAPODS_VERSION_MINOR_UIView_DebugQuickLook 0
+#define COCOAPODS_VERSION_PATCH_UIView_DebugQuickLook 0
+
