@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E234FC4F18D3832200C0B4F3 /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */; };
+		E283A5E918ED98D7006B84E4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E283A5E818ED98D7006B84E4 /* DetailViewController.m */; };
 		E298947818EA105F00469EC6 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E298947418EA105F00469EC6 /* AcousticModelEnglish.bundle */; };
 		E298947918EA105F00469EC6 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E298947518EA105F00469EC6 /* AcousticModelSpanish.bundle */; };
 		E298947A18EA105F00469EC6 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E298947618EA105F00469EC6 /* OpenEars.framework */; };
@@ -50,6 +51,8 @@
 		37797A41DCAA4EFC96595AF6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E234FC4D18D3832200C0B4F3 /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorder.h; sourceTree = "<group>"; };
 		E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
+		E283A5E718ED98D7006B84E4 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		E283A5E818ED98D7006B84E4 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		E298946F18EA0DB500469EC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E298947118EA0E5500469EC6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E298947418EA105F00469EC6 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				E2A6A49E18C5562B003D42C9 /* Main.storyboard */,
 				E2A6A4A018C5594E003D42C9 /* HowdyTalkViewController.h */,
 				E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */,
+				E283A5E718ED98D7006B84E4 /* DetailViewController.h */,
+				E283A5E818ED98D7006B84E4 /* DetailViewController.m */,
 				E298947E18EA15FD00469EC6 /* Notes.h */,
 				E298947F18EA15FD00469EC6 /* Notes.m */,
 				E234FC4D18D3832200C0B4F3 /* AudioRecorder.h */,
@@ -261,6 +266,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Edan Lichtenstein";
 				TargetAttributes = {
+					E2A6A46518C55304003D42C9 = {
+						DevelopmentTeam = KXY9EDFTF5;
+					};
 					E2A6A48518C55304003D42C9 = {
 						TestTargetID = E2A6A46518C55304003D42C9;
 					};
@@ -348,6 +356,7 @@
 				E2A6A47C18C55304003D42C9 /* AppDelegate.m in Sources */,
 				E2A6A47818C55304003D42C9 /* main.m in Sources */,
 				E234FC4F18D3832200C0B4F3 /* AudioRecorder.m in Sources */,
+				E283A5E918ED98D7006B84E4 /* DetailViewController.m in Sources */,
 				E2A6A4A218C5594E003D42C9 /* HowdyTalkViewController.m in Sources */,
 				E2AF11A518CA512200E6585E /* VoiceMessage.m in Sources */,
 				E298948018EA15FD00469EC6 /* Notes.m in Sources */,
@@ -471,6 +480,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
@@ -479,6 +490,7 @@
 				GCC_PREFIX_HEADER = "Howdy/Howdy-Prefix.pch";
 				INFOPLIST_FILE = "Howdy/Howdy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -489,6 +501,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
@@ -497,6 +511,7 @@
 				GCC_PREFIX_HEADER = "Howdy/Howdy-Prefix.pch";
 				INFOPLIST_FILE = "Howdy/Howdy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

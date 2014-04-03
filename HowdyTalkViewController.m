@@ -83,6 +83,8 @@
     NSLog(@"duration: %f", _player.duration);
 }
 
+
+
 - (IBAction)longPressed:(UILongPressGestureRecognizer *)gesture  {
     if(UIGestureRecognizerStateBegan == gesture.state) {
         NSLog(@"Gesture state began");
@@ -156,21 +158,38 @@
 }
 
 
+#pragma mark - Navigation
+
+
+- (IBAction)detailViewTapped:(UIButton *)sender {
+}
+//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"toDetailView"])
+//    {
+//    }
+//}
+
 
 #pragma mark - Emailing Methods
 
-- (IBAction)shareVoiceMail:(UIButton *)sender {
+- (IBAction)shareVoiceMail:(UIButton *)sender
+{
+    [self emailVoiceMail];
+}
 
-    
-  //  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-  //  NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-//    NSString *filepath = [documentsDirectory stringByAppendingPathComponent:memo.memoUrl];
-//    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filepath];
+-(void) emailVoiceMail
+{
 
+    //  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //  NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    //    NSString *filepath = [documentsDirectory stringByAppendingPathComponent:memo.memoUrl];
+    //    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filepath];
+    
     NSURL *shareUrl = self.recorder.url;
     NSData *dataToSend = [[NSData alloc] initWithContentsOfURL:shareUrl];
-//    [fileURL release];
+    //    [fileURL release];
     
     MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
     picker.mailComposeDelegate = self;
@@ -190,8 +209,8 @@
     [picker addAttachmentData:dataToSend mimeType:@"audio/x-caf" fileName: @"MyMessageToYou.caf"];
     
     [self presentViewController:picker animated:YES completion:NULL];
-   
 }
+
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
@@ -240,7 +259,7 @@
 {
     LanguageModelGenerator *lmGenerator = [[LanguageModelGenerator alloc] init];
     
-    NSArray *words = [NSArray arrayWithObjects:@"RECORD", @"SEND MESSAGE", @"LEROY BROWN", @"SONGZA", @"EDAN", nil];
+    NSArray *words = [NSArray arrayWithObjects:@"START RECORDING", @"STOP RECORDING" @"SEND MESSAGE", @"LEROY BROWN", @"SONGZA", @"EDAN", nil];
     NSString *name = @"NameIWantForMyLanguageModelFiles";
     NSError *err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"]]; // Change "AcousticModelEnglish" to "AcousticModelSpanish" to create a Spanish language model instead of an English one.
     
@@ -278,10 +297,23 @@
 
 #pragma mark Open Ears Delegate Methods
 
-- (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
-	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
+- (void) pocketsphinxDidReceiveHypothesis:(NSString *)howdyCommand recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
+	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", howdyCommand, recognitionScore, utteranceID);
     
-    self.heardWordList.text = (@"%@ \n", hypothesis);
+    self.heardWordList.text = (@"%@ \n", howdyCommand);
+    
+    if ([howdyCommand isEqualToString:@"START RECORDING"])
+    {
+        [self startRecording];
+    }
+    else if ([howdyCommand isEqualToString:@"STOP RECORDING"])
+    {
+        [self stopRecording];
+    }
+    else if ([howdyCommand isEqualToString:@"SEND MESSAGE"])
+    {
+        [self emailVoiceMail];
+    }
 }
 
 - (void) pocketsphinxDidStartCalibration {
