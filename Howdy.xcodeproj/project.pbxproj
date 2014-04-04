@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		E234FC4F18D3832200C0B4F3 /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */; };
 		E283A5E918ED98D7006B84E4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E283A5E818ED98D7006B84E4 /* DetailViewController.m */; };
+		E2933BDC18EE2B75008C1FF1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2933BDB18EE2B75008C1FF1 /* CFNetwork.framework */; };
+		E2933BDE18EE2B8B008C1FF1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2933BDD18EE2B8B008C1FF1 /* CoreLocation.framework */; };
+		E2933BE018EE2B9F008C1FF1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2933BDF18EE2B9F008C1FF1 /* libz.dylib */; };
+		E2933BE218EE2BAC008C1FF1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2933BE118EE2BAC008C1FF1 /* MobileCoreServices.framework */; };
+		E2933BE418EE2BB6008C1FF1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2933BE318EE2BB6008C1FF1 /* QuartzCore.framework */; };
+		E2933BE618EE2BC0008C1FF1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2933BE518EE2BC0008C1FF1 /* Security.framework */; };
+		E2933BE818EE2BC9008C1FF1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2933BE718EE2BC9008C1FF1 /* StoreKit.framework */; };
+		E2933BEA18EE2BD3008C1FF1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2933BE918EE2BD3008C1FF1 /* SystemConfiguration.framework */; };
+		E2933BEF18EE407C008C1FF1 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E2933BEE18EE407C008C1FF1 /* Constants.m */; };
 		E298947818EA105F00469EC6 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E298947418EA105F00469EC6 /* AcousticModelEnglish.bundle */; };
 		E298947918EA105F00469EC6 /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E298947518EA105F00469EC6 /* AcousticModelSpanish.bundle */; };
 		E298947A18EA105F00469EC6 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E298947618EA105F00469EC6 /* OpenEars.framework */; };
@@ -53,6 +62,16 @@
 		E234FC4E18D3832200C0B4F3 /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
 		E283A5E718ED98D7006B84E4 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		E283A5E818ED98D7006B84E4 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		E2933BDB18EE2B75008C1FF1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E2933BDD18EE2B8B008C1FF1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E2933BDF18EE2B9F008C1FF1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		E2933BE118EE2BAC008C1FF1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E2933BE318EE2BB6008C1FF1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E2933BE518EE2BC0008C1FF1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E2933BE718EE2BC9008C1FF1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E2933BE918EE2BD3008C1FF1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E2933BED18EE407C008C1FF1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
+		E2933BEE18EE407C008C1FF1 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = ../Constants.m; sourceTree = "<group>"; };
 		E298946F18EA0DB500469EC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E298947118EA0E5500469EC6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E298947418EA105F00469EC6 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
@@ -70,8 +89,8 @@
 		E2A6A47518C55304003D42C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E2A6A47718C55304003D42C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2A6A47918C55304003D42C9 /* Howdy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Howdy-Prefix.pch"; sourceTree = "<group>"; };
-		E2A6A47A18C55304003D42C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E2A6A47B18C55304003D42C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2A6A47A18C55304003D42C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Howdy/AppDelegate.h; sourceTree = "<group>"; };
+		E2A6A47B18C55304003D42C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Howdy/AppDelegate.m; sourceTree = "<group>"; };
 		E2A6A47E18C55304003D42C9 /* Howdy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Howdy.xcdatamodel; sourceTree = "<group>"; };
 		E2A6A48018C55304003D42C9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E2A6A48618C55304003D42C9 /* HowdyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HowdyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,9 +111,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E298947D18EA108400469EC6 /* AVFoundation.framework in Frameworks */,
-				E298947C18EA107900469EC6 /* AudioToolbox.framework in Frameworks */,
+				E2933BEA18EE2BD3008C1FF1 /* SystemConfiguration.framework in Frameworks */,
+				E2933BE818EE2BC9008C1FF1 /* StoreKit.framework in Frameworks */,
+				E2933BE618EE2BC0008C1FF1 /* Security.framework in Frameworks */,
+				E2933BE418EE2BB6008C1FF1 /* QuartzCore.framework in Frameworks */,
+				E2933BE218EE2BAC008C1FF1 /* MobileCoreServices.framework in Frameworks */,
+				E2933BE018EE2B9F008C1FF1 /* libz.dylib in Frameworks */,
+				E2933BDE18EE2B8B008C1FF1 /* CoreLocation.framework in Frameworks */,
 				E2A6A46C18C55304003D42C9 /* CoreGraphics.framework in Frameworks */,
+				E2933BDC18EE2B75008C1FF1 /* CFNetwork.framework in Frameworks */,
+				E298947C18EA107900469EC6 /* AudioToolbox.framework in Frameworks */,
+				E298947D18EA108400469EC6 /* AVFoundation.framework in Frameworks */,
 				E298947B18EA105F00469EC6 /* Slt.framework in Frameworks */,
 				E2A6A47018C55304003D42C9 /* CoreData.framework in Frameworks */,
 				E2A6A46E18C55304003D42C9 /* UIKit.framework in Frameworks */,
@@ -132,6 +159,8 @@
 		E2A6A45D18C55304003D42C9 = {
 			isa = PBXGroup;
 			children = (
+				E2A6A47A18C55304003D42C9 /* AppDelegate.h */,
+				E2A6A47B18C55304003D42C9 /* AppDelegate.m */,
 				E2A6A49E18C5562B003D42C9 /* Main.storyboard */,
 				E2A6A4A018C5594E003D42C9 /* HowdyTalkViewController.h */,
 				E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */,
@@ -163,6 +192,14 @@
 		E2A6A46818C55304003D42C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2933BE918EE2BD3008C1FF1 /* SystemConfiguration.framework */,
+				E2933BE718EE2BC9008C1FF1 /* StoreKit.framework */,
+				E2933BE518EE2BC0008C1FF1 /* Security.framework */,
+				E2933BE318EE2BB6008C1FF1 /* QuartzCore.framework */,
+				E2933BE118EE2BAC008C1FF1 /* MobileCoreServices.framework */,
+				E2933BDF18EE2B9F008C1FF1 /* libz.dylib */,
+				E2933BDD18EE2B8B008C1FF1 /* CoreLocation.framework */,
+				E2933BDB18EE2B75008C1FF1 /* CFNetwork.framework */,
 				E298947318EA105F00469EC6 /* Framework */,
 				E298947118EA0E5500469EC6 /* AVFoundation.framework */,
 				E298946F18EA0DB500469EC6 /* AudioToolbox.framework */,
@@ -179,8 +216,8 @@
 		E2A6A47118C55304003D42C9 /* Howdy */ = {
 			isa = PBXGroup;
 			children = (
-				E2A6A47A18C55304003D42C9 /* AppDelegate.h */,
-				E2A6A47B18C55304003D42C9 /* AppDelegate.m */,
+				E2933BED18EE407C008C1FF1 /* Constants.h */,
+				E2933BEE18EE407C008C1FF1 /* Constants.m */,
 				E2A6A48018C55304003D42C9 /* Images.xcassets */,
 				E2A6A47D18C55304003D42C9 /* Howdy.xcdatamodeld */,
 				E2A6A47218C55304003D42C9 /* Supporting Files */,
@@ -361,6 +398,7 @@
 				E2AF11A518CA512200E6585E /* VoiceMessage.m in Sources */,
 				E298948018EA15FD00469EC6 /* Notes.m in Sources */,
 				E2A6A47F18C55304003D42C9 /* Howdy.xcdatamodeld in Sources */,
+				E2933BEF18EE407C008C1FF1 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +523,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Howdy/Howdy-Prefix.pch";
@@ -506,6 +545,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Howdy/Howdy-Prefix.pch";
