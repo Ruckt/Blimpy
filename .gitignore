@@ -1,5 +1,5 @@
 # Xcode
-/Constants.m
+Constants.m
 .DS_Store
 */build/*
 *.pbxuser
