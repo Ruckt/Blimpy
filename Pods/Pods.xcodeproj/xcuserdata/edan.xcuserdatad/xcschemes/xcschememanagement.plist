@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PMAudioRecorderViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Parse-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1DD8E7ED566843ECBD1BF364</key>
+		<key>034FBF74CC334B2BA16B3424</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95A00C0381A347D8A57A59EE</key>
+		<key>0602B8B17EC04ED5911A43B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD13AD583DFC44CCA26D52F3</key>
+		<key>08B831A89C6F44078C5D6493</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F069D706FF84450597D15846</key>
+		<key>7AA7DDFC84CC4A45974C7245</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B13E1B2240BF4C4BAD14C0DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB228240FA5C41CFA7A1CBB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

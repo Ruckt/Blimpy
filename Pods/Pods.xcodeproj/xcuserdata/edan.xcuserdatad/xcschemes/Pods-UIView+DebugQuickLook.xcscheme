@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DD8E7ED566843ECBD1BF364"
+               BlueprintIdentifier = "034FBF74CC334B2BA16B3424"
                BuildableName = "libPods-UIView+DebugQuickLook.a"
                BlueprintName = "Pods-UIView+DebugQuickLook"
                ReferencedContainer = "container:Pods.xcodeproj">

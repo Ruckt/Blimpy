@@ -9,6 +9,8 @@
 #import "HowdyTalkViewController.h"
 #import <MessageUI/MessageUI.h>
 #import <OpenEars/LanguageModelGenerator.h>
+#import <Parse/Parse.h>
+#import "Constants.h"
 
 @interface HowdyTalkViewController () <MFMailComposeViewControllerDelegate>
 
@@ -36,7 +38,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [Parse setApplicationId:(@"%@",PARSE_APPLICATION_ID)
+                  clientKey:(@"%@",PARSE_CLIENT_KEY)];
+//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     
     
@@ -82,6 +86,7 @@
     [_player play];
     NSLog(@"duration: %f", _player.duration);
 }
+
 
 
 
@@ -158,17 +163,33 @@
 }
 
 
-#pragma mark - Navigation
+#pragma mark - Parse Communication
 
 
-- (IBAction)detailViewTapped:(UIButton *)sender {
+- (IBAction)sendMesssage:(UIButton *)sender {
+ 
+    NSURL *shareUrl = self.recorder.url;
+    NSData *dataToSend = [[NSData alloc] initWithContentsOfURL:shareUrl];
+    
+    
+    PFObject *voiceMail = [PFObject objectWithClassName:@"Voice_Mail"];
+    [voiceMail setObject:@"Leroy Brown" forKey:@"Name"];
+    [voiceMail setObject:[NSNumber numberWithInt:101] forKey:@"UniqueID"];
+    [voiceMail setObject:dataToSend forKey:@"Audio_File"];
+    [voiceMail saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded){
+            NSLog(@"Voice Mail Uploaded!");
+        }
+        else{
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+        
+    }];
+  
+    
 }
-//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"toDetailView"])
-//    {
-//    }
-//}
 
 
 #pragma mark - Emailing Methods
