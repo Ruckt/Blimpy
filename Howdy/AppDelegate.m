@@ -7,7 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "Constants.h"
+#import <Parse/Parse.h>
 
+@interface AppDelegate () <AVAudioPlayerDelegate>
+
+@property (nonatomic, strong) AVAudioPlayer *player;
+
+@end
 
 @implementation AppDelegate
 
@@ -15,13 +22,22 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // Register for push notifications
+    [Parse setApplicationId:(@"%@",PARSE_APPLICATION_ID)
+                clientKey:(@"%@",PARSE_CLIENT_KEY)];
+    [application registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
 
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+   // [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+
+    
+    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    NSLog(@"Did Finish Launching: %@", notificationPayload);
+    
     return YES;
 }
 
@@ -52,6 +68,82 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
+
+#pragma mark Parse Related Methods
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)vmInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
+
+    NSLog(@"Did Receive Notification: %@", vmInfo);
+    
+    // Create empty photo object
+    NSString *voiceMailID = [vmInfo objectForKey:@"VoiceMailID"];
+    PFObject *targetVoiceMail = [PFObject objectWithoutDataWithClassName:@"Voice_Mail" objectId:voiceMailID];
+
+//    NSLog(@"ID: %@", voiceMailID);
+//    NSLog(@"Target: %@", targetVoiceMail);
+    
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Voice_Mail"];
+    [query getObjectInBackgroundWithId:(@"%@", voiceMailID) block:^(PFObject *voiceMail, NSError *error) {
+        // Do something with the returned PFObject in the gameScore variable.
+        NSLog(@"%@", voiceMail);
+        
+        NSData *soundData = [voiceMail objectForKey:@"Audio_File"];
+        NSLog(@"Will you play?");
+        
+        self.player = [[AVAudioPlayer alloc] initWithData:soundData error:&error];
+        _player.volume = 1.0f;
+        _player.numberOfLoops = 0;
+        _player.delegate = self;
+        [_player play];
+        NSLog(@"Did you play?");
+        
+    }];
+}
+
+/*
+ - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)vmInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
+ 
+ NSLog(@"Did Receive Notification: %@", vmInfo);
+ 
+ // Create empty photo object
+ NSString *voiceMailID = [vmInfo objectForKey:@"VoiceMailID"];
+ PFObject *targetVoiceMail = [PFObject objectWithoutDataWithClassName:@"Voice_Mail" objectId:voiceMailID];
+ NSLog(@"ID: %@", voiceMailID);
+ NSLog(@"Target: %@", targetVoiceMail);
+ 
+ // Fetch photo object
+ [targetVoiceMail fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+ if (error) {
+ handler(UIBackgroundFetchResultFailed);
+ }
+ else {
+ NSLog(@"Play Message");
+ self.player = [[AVAudioPlayer alloc] initWithData:targetVoiceMail error:&error];
+ _player.volume = 1.0f;
+ _player.numberOfLoops = 0;
+ _player.delegate = self;
+ [_player play];
+ }
+ }];
+ }
+ */
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    [currentInstallation saveInBackground];
+}
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"%@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
+
 
 - (void)saveContext
 {

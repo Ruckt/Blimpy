@@ -10,6 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import <OpenEars/LanguageModelGenerator.h>
 #import <Parse/Parse.h>
+#import "LogInViewController.h"
 #import "Constants.h"
 
 @interface HowdyTalkViewController () <MFMailComposeViewControllerDelegate>
@@ -38,13 +39,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [Parse setApplicationId:(@"%@",PARSE_APPLICATION_ID)
-                  clientKey:(@"%@",PARSE_CLIENT_KEY)];
-//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    NSLog(@"%@", currentUser);
+ //  PFUser *user = [PFUser logInWithUsername:@"Leroy Brown" password:@"Gene"];
 
+
+    if (currentUser) {
+        // do stuff with the user
+    } else {
+        
+        PFUser *user = [PFUser user];
+        user.username = @"Leroy Brown";
+        user.password = @"Gene";
+        user.email = @"Leroy@example.com";
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                // Hooray! Let them use the app now.
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                // Show the errorString somewhere and let the user try again.
+            }
+        }];
+//        NSString *storyboardName = @"Main";
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+//        UIViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+
+
+    [self associateDeviceWithUser];
     
-    
-    [self openEars];
+    [self setupNavigationBar];
+   // [self openEars];
 }
 
 
@@ -58,6 +85,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 #pragma mark - actions
 
@@ -117,6 +147,13 @@
     NSLog(@"did finish playing %d", flag);
 }
 
+-(void) associateDeviceWithUser
+{
+    PFInstallation *installation = [PFInstallation currentInstallation];
+    installation[@"user"] = [PFUser currentUser];
+    [installation saveInBackground];
+}
+
 
 #pragma mark Recording
 
@@ -163,6 +200,7 @@
 }
 
 
+
 #pragma mark - Parse Communication
 
 
@@ -171,25 +209,50 @@
     NSURL *shareUrl = self.recorder.url;
     NSData *dataToSend = [[NSData alloc] initWithContentsOfURL:shareUrl];
     
-    
+ 
     PFObject *voiceMail = [PFObject objectWithClassName:@"Voice_Mail"];
-    [voiceMail setObject:@"Leroy Brown" forKey:@"Name"];
-    [voiceMail setObject:[NSNumber numberWithInt:101] forKey:@"UniqueID"];
+    [voiceMail setObject:@"Edan" forKey:@"Name"];
+    [voiceMail setObject:@101 forKey:@"UniqueID"];
     [voiceMail setObject:dataToSend forKey:@"Audio_File"];
+    
     [voiceMail saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
         if (succeeded){
-            NSLog(@"Voice Mail Uploaded!");
+            NSLog(@"Voice Mail Uploaded with Object id %@",[voiceMail objectId]);
+            [self sendPushWithID:[voiceMail objectId]];
         }
         else{
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            NSLog(@"Error: %@", errorString);
+            NSLog(@"PFObject Sending Error: %@", errorString);
         }
-        
     }];
-  
     
 }
+
+-(void) sendPushWithID: (NSString *)voiceMailID
+{
+
+    NSDictionary *pushDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:voiceMailID, @"VoiceMailID", nil];
+    NSLog(@"%@", voiceMailID);
+    
+    PFQuery *userQuery = [PFUser query];
+    [userQuery whereKey:@"username" containsString:@"Edan"];
+    //NSLog(@"%@",[userQuery getFirstObject]);
+    
+  
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"user" matchesQuery:userQuery];
+    //NSLog(@"%@", [pushQuery getFirstObject]);
+    
+    PFPush *push = [[PFPush alloc] init];
+    [push setQuery:pushQuery]; // Set our Installation query
+    [push setMessage:@"Testing the How to the dY."];
+    [push setData:pushDataDictionary];
+    [push sendPushInBackground];
+    NSLog(@"Sent Push");
+    
+}
+
+
 
 
 #pragma mark - Emailing Methods
@@ -280,7 +343,7 @@
 {
     LanguageModelGenerator *lmGenerator = [[LanguageModelGenerator alloc] init];
     
-    NSArray *words = [NSArray arrayWithObjects:@"START RECORDING", @"STOP RECORDING" @"SEND MESSAGE", @"LEROY BROWN", @"SONGZA", @"EDAN", nil];
+    NSArray *words = [NSArray arrayWithObjects:@"BEGIN", @"BREAK" @"POSTMAN", @"LEROY BROWN", nil];
     NSString *name = @"NameIWantForMyLanguageModelFiles";
     NSError *err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"]]; // Change "AcousticModelEnglish" to "AcousticModelSpanish" to create a Spanish language model instead of an English one.
     
@@ -323,15 +386,15 @@
     
     self.heardWordList.text = (@"%@ \n", howdyCommand);
     
-    if ([howdyCommand isEqualToString:@"START RECORDING"])
+    if ([howdyCommand isEqualToString:@"BEGIN"])
     {
         [self startRecording];
     }
-    else if ([howdyCommand isEqualToString:@"STOP RECORDING"])
+    else if ([howdyCommand isEqualToString:@"END"])
     {
         [self stopRecording];
     }
-    else if ([howdyCommand isEqualToString:@"SEND MESSAGE"])
+    else if ([howdyCommand isEqualToString:@"POSTMAN"])
     {
         [self emailVoiceMail];
     }
@@ -380,5 +443,20 @@
 	NSLog(@"A test file that was submitted for recognition is now complete.");
 }
 
+
+
+#pragma mark Navigation Bar setup
+
+-(void) setupNavigationBar
+{
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
+    searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
+    searchBarView.autoresizingMask = 0;
+    searchBar.delegate = self;
+    searchBar.placeholder = @"Find a Contact";
+    [searchBarView addSubview:searchBar];
+    self.navigationItem.titleView = searchBarView;
+}
 
 @end

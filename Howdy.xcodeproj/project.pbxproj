@@ -43,6 +43,7 @@
 		E2A6A49F18C5562B003D42C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A6A49E18C5562B003D42C9 /* Main.storyboard */; };
 		E2A6A4A218C5594E003D42C9 /* HowdyTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */; };
 		E2AF11A518CA512200E6585E /* VoiceMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AF11A418CA512200E6585E /* VoiceMessage.m */; };
+		E2E9A61518F337A000F17252 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9A61418F337A000F17252 /* LogInViewController.m */; };
 		F7F353079B7C43229D9117C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67200D4D1964F878C112B1E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,8 @@
 		E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowdyTalkViewController.m; sourceTree = "<group>"; };
 		E2AF11A318CA512200E6585E /* VoiceMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceMessage.h; sourceTree = "<group>"; };
 		E2AF11A418CA512200E6585E /* VoiceMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceMessage.m; sourceTree = "<group>"; };
+		E2E9A61318F337A000F17252 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		E2E9A61418F337A000F17252 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		F67200D4D1964F878C112B1E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,6 +165,8 @@
 				E2A6A47A18C55304003D42C9 /* AppDelegate.h */,
 				E2A6A47B18C55304003D42C9 /* AppDelegate.m */,
 				E2A6A49E18C5562B003D42C9 /* Main.storyboard */,
+				E2E9A61318F337A000F17252 /* LogInViewController.h */,
+				E2E9A61418F337A000F17252 /* LogInViewController.m */,
 				E2A6A4A018C5594E003D42C9 /* HowdyTalkViewController.h */,
 				E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */,
 				E283A5E718ED98D7006B84E4 /* DetailViewController.h */,
@@ -304,7 +309,12 @@
 				ORGANIZATIONNAME = "Edan Lichtenstein";
 				TargetAttributes = {
 					E2A6A46518C55304003D42C9 = {
-						DevelopmentTeam = KXY9EDFTF5;
+						DevelopmentTeam = 266QWC925V;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					E2A6A48518C55304003D42C9 = {
 						TestTargetID = E2A6A46518C55304003D42C9;
@@ -392,6 +402,7 @@
 			files = (
 				E2A6A47C18C55304003D42C9 /* AppDelegate.m in Sources */,
 				E2A6A47818C55304003D42C9 /* main.m in Sources */,
+				E2E9A61518F337A000F17252 /* LogInViewController.m in Sources */,
 				E234FC4F18D3832200C0B4F3 /* AudioRecorder.m in Sources */,
 				E283A5E918ED98D7006B84E4 /* DetailViewController.m in Sources */,
 				E2A6A4A218C5594E003D42C9 /* HowdyTalkViewController.m in Sources */,
@@ -457,7 +468,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.ruckt.Howdy";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.ruckt.Howdy";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -496,7 +508,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.ruckt.Howdy";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.ruckt.Howdy";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
