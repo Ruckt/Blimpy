@@ -43,6 +43,7 @@
 		E2A6A49F18C5562B003D42C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A6A49E18C5562B003D42C9 /* Main.storyboard */; };
 		E2A6A4A218C5594E003D42C9 /* HowdyTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */; };
 		E2AF11A518CA512200E6585E /* VoiceMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AF11A418CA512200E6585E /* VoiceMessage.m */; };
+		E2B6C90E18F8822200E501CA /* UIView+DebugQuickLook.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B6C90D18F8822200E501CA /* UIView+DebugQuickLook.m */; };
 		E2E9A61518F337A000F17252 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E9A61418F337A000F17252 /* LogInViewController.m */; };
 		F7F353079B7C43229D9117C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67200D4D1964F878C112B1E /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,7 @@
 		E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowdyTalkViewController.m; sourceTree = "<group>"; };
 		E2AF11A318CA512200E6585E /* VoiceMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceMessage.h; sourceTree = "<group>"; };
 		E2AF11A418CA512200E6585E /* VoiceMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceMessage.m; sourceTree = "<group>"; };
+		E2B6C90D18F8822200E501CA /* UIView+DebugQuickLook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+DebugQuickLook.m"; path = "Pods/UIView+DebugQuickLook/UIView+DebugQuickLook.m"; sourceTree = "<group>"; };
 		E2E9A61318F337A000F17252 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		E2E9A61418F337A000F17252 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		F67200D4D1964F878C112B1E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 				E2E9A61418F337A000F17252 /* LogInViewController.m */,
 				E2A6A4A018C5594E003D42C9 /* HowdyTalkViewController.h */,
 				E2A6A4A118C5594E003D42C9 /* HowdyTalkViewController.m */,
+				E2B6C90D18F8822200E501CA /* UIView+DebugQuickLook.m */,
 				E283A5E718ED98D7006B84E4 /* DetailViewController.h */,
 				E283A5E818ED98D7006B84E4 /* DetailViewController.m */,
 				E298947E18EA15FD00469EC6 /* Notes.h */,
@@ -408,6 +411,7 @@
 				E2A6A4A218C5594E003D42C9 /* HowdyTalkViewController.m in Sources */,
 				E2AF11A518CA512200E6585E /* VoiceMessage.m in Sources */,
 				E298948018EA15FD00469EC6 /* Notes.m in Sources */,
+				E2B6C90E18F8822200E501CA /* UIView+DebugQuickLook.m in Sources */,
 				E2A6A47F18C55304003D42C9 /* Howdy.xcdatamodeld in Sources */,
 				E2933BEF18EE407C008C1FF1 /* Constants.m in Sources */,
 			);

@@ -34,6 +34,8 @@
 
    // [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
 
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
     
     NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     NSLog(@"Did Finish Launching: %@", notificationPayload);
@@ -86,17 +88,16 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Voice_Mail"];
     [query getObjectInBackgroundWithId:(@"%@", voiceMailID) block:^(PFObject *voiceMail, NSError *error) {
         // Do something with the returned PFObject in the gameScore variable.
-        NSLog(@"%@", voiceMail);
+       // NSLog(@"%@", voiceMail);
         
         NSData *soundData = [voiceMail objectForKey:@"Audio_File"];
-        NSLog(@"Will you play?");
         
         self.player = [[AVAudioPlayer alloc] initWithData:soundData error:&error];
         _player.volume = 1.0f;
         _player.numberOfLoops = 0;
         _player.delegate = self;
         [_player play];
-        NSLog(@"Did you play?");
+        NSLog(@"VM Played");
         
     }];
 }

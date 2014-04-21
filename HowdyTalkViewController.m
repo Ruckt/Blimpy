@@ -12,6 +12,7 @@
 #import <Parse/Parse.h>
 #import "LogInViewController.h"
 #import "Constants.h"
+//#import <UIView+DebugQuickLook.m>
 
 @interface HowdyTalkViewController () <MFMailComposeViewControllerDelegate>
 
@@ -50,9 +51,14 @@
     } else {
         
         PFUser *user = [PFUser user];
-        user.username = @"Leroy Brown";
-        user.password = @"Gene";
-        user.email = @"Leroy@example.com";
+//        user.username = @"Leroy Brown";
+//        user.password = @"Gene";
+//        user.email = @"Leroy@example.com";
+
+        user.username = @"Edan";
+        user.password = @"jam";
+        user.email = @"Edan@example.com";
+        
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
                 // Hooray! Let them use the app now.
@@ -235,7 +241,7 @@
     NSLog(@"%@", voiceMailID);
     
     PFQuery *userQuery = [PFUser query];
-    [userQuery whereKey:@"username" containsString:@"Edan"];
+    [userQuery whereKey:@"username" containsString:@"Leroy Brown"];
     //NSLog(@"%@",[userQuery getFirstObject]);
     
   
