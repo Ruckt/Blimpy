@@ -286,8 +286,8 @@
     NSLog(@"%@", voiceMailID);
     
     PFQuery *userQuery = [PFUser query];
-//    [userQuery whereKey:@"username" containsString:@"Leroy Brown"];
-    [userQuery whereKey:@"username" containsString:@"Edan"];
+    [userQuery whereKey:@"username" containsString:@"Leroy Brown"];
+//    [userQuery whereKey:@"username" containsString:@"Edan"];
     //NSLog(@"%@",[userQuery getFirstObject]);
     
   
@@ -439,9 +439,9 @@
 
 -(void)drawRecordLabel
 {
-    FAKFontAwesome *microphoneIcon = [FAKFontAwesome microphoneIconWithSize:80];
+    FAKFontAwesome *microphoneIcon = [FAKFontAwesome microphoneIconWithSize:60];
     [microphoneIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    self.microphoneImageView.image = [microphoneIcon imageWithSize:self.microphoneImageView.frame.size];
+    self.microphoneImageView.image = [microphoneIcon imageWithSize:CGSizeMake(150, 120)];
     
     self.recordLabel.layer.borderColor = [UIColor purpleLight].CGColor;
     self.recordLabel.layer.backgroundColor = [UIColor silverCool].CGColor;
