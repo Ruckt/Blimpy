@@ -25,11 +25,9 @@ typedef void (^AudioNoteRecorderFinishBlock) (BOOL wasRecordingTaken, NSURL *rec
 
     
 - (IBAction)howdyButtonPressed:(UIButton *)sender;
-- (IBAction)shareVoiceMail:(UIButton *)sender;
-- (IBAction)sendMesssage:(UIButton *)sender;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *heardWordList;
+//@property (weak, nonatomic) IBOutlet UILabel *heardWordList;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *recordingLengthLabel;

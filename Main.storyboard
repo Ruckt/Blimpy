@@ -77,18 +77,22 @@
                                 <rect key="frame" x="25" y="330" width="271" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HowdY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffJ-0b-cKt">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffJ-0b-cKt">
                                         <rect key="frame" x="0.0" y="0.0" width="271" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.97463529375031466" blue="0.00019371711026683336" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="70"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Rls-Xo-C5y" appends="YES" id="DuB-vg-MsR"/>
                                         </connections>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ft-lg-6tT">
+                                        <rect key="frame" x="1" y="0.0" width="271" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -96,8 +100,8 @@
                                     <outletCollection property="gestureRecognizers" destination="Rls-Xo-C5y" appends="YES" id="oMG-9z-Hqi"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxy-qw-Gl8">
-                                <rect key="frame" x="102" y="168" width="102" height="50"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxy-qw-Gl8">
+                                <rect key="frame" x="0.0" y="159" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -167,9 +171,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HowdY!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7a-1R-5ph">
-                                <rect key="frame" x="34" y="94" width="238" height="66"/>
+                                <rect key="frame" x="0.0" y="85" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="61"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -181,10 +185,13 @@
                         <outlet property="emailVMImageView" destination="FKd-zG-nSc" id="Wu0-94-gCT"/>
                         <outlet property="emailVMView" destination="aIo-tC-0Ps" id="Wt5-p2-fi0"/>
                         <outlet property="heardWordList" destination="odW-wt-IL9" id="iIm-4I-zA4"/>
+                        <outlet property="howdyLabel" destination="y7a-1R-5ph" id="NFj-Aj-Wsp"/>
+                        <outlet property="microphoneImageView" destination="6Ft-lg-6tT" id="GKH-d8-1Up"/>
                         <outlet property="playBackImageView" destination="DxL-fr-F0p" id="oej-ma-Hcp"/>
                         <outlet property="playBackView" destination="1Ys-mj-FnO" id="aX6-JM-a8f"/>
                         <outlet property="pushVMImageView" destination="qAa-Yg-b1F" id="PV0-jt-itc"/>
                         <outlet property="pushVMView" destination="G4w-ve-tAC" id="dro-XJ-G05"/>
+                        <outlet property="recordLabel" destination="ffJ-0b-cKt" id="WiR-g2-ZIl"/>
                         <outlet property="recordingLengthLabel" destination="Hxy-qw-Gl8" id="kVq-tJ-GeJ"/>
                         <outlet property="statusLabel" destination="ffJ-0b-cKt" id="aXz-he-DT4"/>
                     </connections>

@@ -25,6 +25,10 @@
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, strong) NSTimer *recordingTimer;
 
+@property (strong, nonatomic) IBOutlet UILabel *howdyLabel;
+
+
+
 @property (strong, nonatomic) IBOutlet UIView *playBackView;
 @property (strong, nonatomic) IBOutlet UIImageView *playBackImageView;
 - (IBAction)playBackButtonTapped:(UIButton *)sender;
@@ -33,10 +37,12 @@
 @property (strong, nonatomic) IBOutlet UIImageView *emailVMImageView;
 - (IBAction)emailVMButtonTapped:(UIButton *)sender;
 
-
 @property (strong, nonatomic) IBOutlet UIView *pushVMView;
 @property (strong, nonatomic) IBOutlet UIImageView *pushVMImageView;
 - (IBAction)pushVMButtonTapped:(UIButton *)sender;
+
+@property (strong, nonatomic) IBOutlet UILabel *recordLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *microphoneImageView;
 
 
 @end
@@ -58,8 +64,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self setupControllerButtons];
+    [self createUI];
+
     
     PFUser *currentUser = [PFUser currentUser];
     NSLog(@"%@", currentUser);
@@ -144,11 +150,9 @@
     NSLog(@"duration: %f", _player.duration);
 }
 
-- (IBAction)shareVoiceMail:(UIButton *)sender
-{
+- (IBAction)shareVoiceMail:(UIButton *)sender{
     [self emailVoiceMail];
 }
-
 
 - (IBAction)emailVMButtonTapped:(UIButton *)sender {
     [self emailVoiceMail];
@@ -157,20 +161,6 @@
 - (IBAction)pushVMButtonTapped:(UIButton *)sender {
     [self pushVoiceMessage];
 }
-
-
-//- (IBAction)playBackButtonPressed:(UIButton *)sender
-//{
-//    //    [SimpleAudioPlayer playFile:_recorder.url.description];
-//    NSError* error = nil;
-//    
-//    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:&error];
-//    _player.volume = 1.0f;
-//    _player.numberOfLoops = 0;
-//    _player.delegate = self;
-//    [_player play];
-//    NSLog(@"duration: %f", _player.duration);
-//}
 
 
 
@@ -243,11 +233,16 @@
     self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(recordingTimerUpdate:) userInfo:nil repeats:YES];
     [_recordingTimer fire];
     
+    self.recordingLengthLabel.backgroundColor = [UIColor redColor];
+    
 
 }
 
 -(void) stopRecording
 {
+    self.recordingLengthLabel.backgroundColor = [UIColor clearColor];
+    
+    
     [self.recorder stop];
     [self.recordingTimer invalidate];
     self.recordingTimer = nil;
@@ -258,9 +253,6 @@
 
 #pragma mark - Parse Communication
 
-
-- (IBAction)sendMesssage:(UIButton *)sender {
-}
 
 -(void) pushVoiceMessage
 {
@@ -294,7 +286,8 @@
     NSLog(@"%@", voiceMailID);
     
     PFQuery *userQuery = [PFUser query];
-    [userQuery whereKey:@"username" containsString:@"Leroy Brown"];
+//    [userQuery whereKey:@"username" containsString:@"Leroy Brown"];
+    [userQuery whereKey:@"username" containsString:@"Edan"];
     //NSLog(@"%@",[userQuery getFirstObject]);
     
   
@@ -382,6 +375,14 @@
 
 #pragma mark - UI setup
 
+-(void) createUI
+{
+    [self setupControllerButtons];
+    [self drawRecordLabel];
+    [self drawHowdyLabel];
+    [self drawTimerLabel];
+    
+}
 -(void) setupNavigationBar
 {
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
@@ -398,9 +399,9 @@
 -(void) setupControllerButtons
 {
     //Create and draw Icons
-    FAKFontAwesome *playIcon = [FAKFontAwesome playIconWithSize:40];
-    FAKFontAwesome *emailIcon = [FAKFontAwesome envelopeOIconWithSize:40];
-    FAKFontAwesome *iPhoneIcon = [FAKFontAwesome mobileIconWithSize:50];
+    FAKFontAwesome *playIcon = [FAKFontAwesome playIconWithSize:50];
+    FAKFontAwesome *emailIcon = [FAKFontAwesome envelopeOIconWithSize:45];
+    FAKFontAwesome *iPhoneIcon = [FAKFontAwesome mobileIconWithSize:60];
 
     playIcon.drawingBackgroundColor = [UIColor clearColor];
     [playIcon addAttribute:NSForegroundColorAttributeName value:[UIColor purpleMagic]];
@@ -436,9 +437,28 @@
 
 }
 
+-(void)drawRecordLabel
+{
+    FAKFontAwesome *microphoneIcon = [FAKFontAwesome microphoneIconWithSize:80];
+    [microphoneIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    self.microphoneImageView.image = [microphoneIcon imageWithSize:self.microphoneImageView.frame.size];
+    
+    self.recordLabel.layer.borderColor = [UIColor purpleLight].CGColor;
+    self.recordLabel.layer.backgroundColor = [UIColor silverCool].CGColor;
+    self.recordLabel.layer.borderWidth = 5.0;
+    
+}
+
+-(void)drawHowdyLabel
+{
+    self.howdyLabel.textColor = [UIColor purpleMagic];
+}
 
 
-
+-(void)drawTimerLabel
+{
+    self.recordingLengthLabel.textColor = [UIColor silverSimple];
+}
 
 
 #pragma mark - Open Ears
@@ -504,7 +524,7 @@
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)howdyCommand recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
 	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", howdyCommand, recognitionScore, utteranceID);
     
-    self.heardWordList.text = (@"%@ \n", howdyCommand);
+    //self.heardWordList.text = (@"%@ \n", howdyCommand);
     
     if ([howdyCommand isEqualToString:@"BEGIN"])
     {
