@@ -96,57 +96,18 @@
                                     <outletCollection property="gestureRecognizers" destination="Rls-Xo-C5y" appends="YES" id="oMG-9z-Hqi"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D4-Pg-Ey1">
-                                <rect key="frame" x="127" y="154" width="107" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                <state key="normal" title="Email VM">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareVoiceMail:" destination="0eB-kV-iPS" eventType="touchUpInside" id="fQg-SX-WL3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQw-sR-J5Y">
-                                <rect key="frame" x="172" y="73" width="148" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="23"/>
-                                <state key="normal" title="Walkie-Talkie">
-                                    <color key="titleColor" red="1" green="0.97463529380000002" blue="0.0001937171103" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendMesssage:" destination="0eB-kV-iPS" eventType="touchUpInside" id="QVr-an-U04"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxy-qw-Gl8">
-                                <rect key="frame" x="94" y="67" width="102" height="50"/>
+                                <rect key="frame" x="102" y="168" width="102" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-P0-tBR">
-                                <rect key="frame" x="15" y="95" width="156" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40524819536144208" green="0.77174643917997887" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="33"/>
-                                <state key="normal" title="Play Back">
-                                    <color key="titleColor" red="1" green="0.99769906801654962" blue="0.41095115964625051" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="playBackButtonPressed:" destination="0eB-kV-iPS" eventType="touchUpInside" id="sX1-C5-32p"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ys-mj-FnO">
-                                <rect key="frame" x="22.5" y="242.5" width="75" height="75"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ys-mj-FnO">
+                                <rect key="frame" x="23" y="243" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9D-BA-Eg6">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9D-BA-Eg6">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
@@ -156,40 +117,74 @@
                                             <action selector="playBackButtonTapped:" destination="0eB-kV-iPS" eventType="touchUpInside" id="NYn-eD-IGs"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-fr-F0p">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-fr-F0p">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="G1M-g3-qGo"/>
-                                            <constraint firstAttribute="width" constant="75" id="XTZ-R1-TEY"/>
-                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="DxL-fr-F0p" secondAttribute="centerX" id="6DT-QB-57p"/>
-                                    <constraint firstAttribute="bottom" secondItem="DxL-fr-F0p" secondAttribute="bottom" id="6dc-dL-NUe"/>
-                                    <constraint firstItem="o9D-BA-Eg6" firstAttribute="leading" secondItem="1Ys-mj-FnO" secondAttribute="leading" id="Exx-mv-egf"/>
-                                    <constraint firstAttribute="centerY" secondItem="o9D-BA-Eg6" secondAttribute="centerY" id="FT8-vu-ItB"/>
-                                    <constraint firstItem="o9D-BA-Eg6" firstAttribute="top" secondItem="1Ys-mj-FnO" secondAttribute="top" id="Kaa-lA-PQA"/>
-                                    <constraint firstAttribute="trailing" secondItem="o9D-BA-Eg6" secondAttribute="trailing" id="LDl-Lw-SnA"/>
-                                    <constraint firstAttribute="trailing" secondItem="DxL-fr-F0p" secondAttribute="trailing" id="a8R-Qw-psV"/>
-                                    <constraint firstAttribute="bottom" secondItem="o9D-BA-Eg6" secondAttribute="bottom" id="eFd-Fk-9ee"/>
-                                    <constraint firstItem="DxL-fr-F0p" firstAttribute="top" secondItem="1Ys-mj-FnO" secondAttribute="top" id="eVM-1U-LtT"/>
-                                    <constraint firstAttribute="centerX" secondItem="o9D-BA-Eg6" secondAttribute="centerX" id="h3g-BH-wMW"/>
-                                    <constraint firstItem="DxL-fr-F0p" firstAttribute="leading" secondItem="1Ys-mj-FnO" secondAttribute="leading" id="mDN-lf-bjf"/>
-                                    <constraint firstAttribute="centerY" secondItem="DxL-fr-F0p" secondAttribute="centerY" id="uR9-lQ-jOI"/>
-                                    <constraint firstItem="DxL-fr-F0p" firstAttribute="top" secondItem="1Ys-mj-FnO" secondAttribute="top" id="udp-cI-zcf"/>
-                                </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aIo-tC-0Ps">
+                                <rect key="frame" x="123" y="242" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FKd-zG-nSc">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7O-44-OrS">
+                                        <rect key="frame" x="1" y="1" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="emailVMButtonTapped:" destination="0eB-kV-iPS" eventType="touchUpInside" id="utH-9t-AOO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4w-ve-tAC">
+                                <rect key="frame" x="223" y="242" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qAa-Yg-b1F">
+                                        <rect key="frame" x="0.0" y="1" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wju-pf-bsm">
+                                        <rect key="frame" x="0.0" y="1" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pushVMButtonTapped:" destination="0eB-kV-iPS" eventType="touchUpInside" id="SAj-Dh-Jal"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HowdY!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7a-1R-5ph">
+                                <rect key="frame" x="34" y="94" width="238" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="HowdY!" id="99W-0F-P04"/>
                     <connections>
+                        <outlet property="emailVMImageView" destination="FKd-zG-nSc" id="Wu0-94-gCT"/>
+                        <outlet property="emailVMView" destination="aIo-tC-0Ps" id="Wt5-p2-fi0"/>
                         <outlet property="heardWordList" destination="odW-wt-IL9" id="iIm-4I-zA4"/>
                         <outlet property="playBackImageView" destination="DxL-fr-F0p" id="oej-ma-Hcp"/>
                         <outlet property="playBackView" destination="1Ys-mj-FnO" id="aX6-JM-a8f"/>
+                        <outlet property="pushVMImageView" destination="qAa-Yg-b1F" id="PV0-jt-itc"/>
+                        <outlet property="pushVMView" destination="G4w-ve-tAC" id="dro-XJ-G05"/>
                         <outlet property="recordingLengthLabel" destination="Hxy-qw-Gl8" id="kVq-tJ-GeJ"/>
                         <outlet property="statusLabel" destination="ffJ-0b-cKt" id="aXz-he-DT4"/>
                     </connections>

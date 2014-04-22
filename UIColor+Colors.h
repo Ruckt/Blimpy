@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UIColor (Colors)
-+ (UIColor *)darkSilver;
++ (UIColor *)silverCool;
++ (UIColor *)silverSimple;
 + (UIColor *)purpleMagic;
++ (UIColor *)purpleLight;
++ (UIColor *)purpleOcean;
 @end

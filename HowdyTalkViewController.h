@@ -26,7 +26,6 @@ typedef void (^AudioNoteRecorderFinishBlock) (BOOL wasRecordingTaken, NSURL *rec
     
 - (IBAction)howdyButtonPressed:(UIButton *)sender;
 - (IBAction)shareVoiceMail:(UIButton *)sender;
-- (IBAction)playBackButtonPressed:(UIButton *)sender;
 - (IBAction)sendMesssage:(UIButton *)sender;
 
 

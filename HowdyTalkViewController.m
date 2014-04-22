@@ -26,8 +26,17 @@
 @property (nonatomic, strong) NSTimer *recordingTimer;
 
 @property (strong, nonatomic) IBOutlet UIView *playBackView;
-- (IBAction)playBackButtonTapped:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *playBackImageView;
+- (IBAction)playBackButtonTapped:(UIButton *)sender;
+
+@property (strong, nonatomic) IBOutlet UIView *emailVMView;
+@property (strong, nonatomic) IBOutlet UIImageView *emailVMImageView;
+- (IBAction)emailVMButtonTapped:(UIButton *)sender;
+
+
+@property (strong, nonatomic) IBOutlet UIView *pushVMView;
+@property (strong, nonatomic) IBOutlet UIImageView *pushVMImageView;
+- (IBAction)pushVMButtonTapped:(UIButton *)sender;
 
 
 @end
@@ -51,11 +60,6 @@
     [super viewDidLoad];
     
     [self setupControllerButtons];
-    
-    
-    
-    
-    
     
     PFUser *currentUser = [PFUser currentUser];
     NSLog(@"%@", currentUser);
@@ -91,7 +95,7 @@
 
 
     [self associateDeviceWithUser];
-    
+
     // Not yet ready for these two below.
     // [self setupNavigationBar];
     // [self openEars];
@@ -112,7 +116,7 @@
 
 
 
-#pragma mark - actions
+#pragma mark - Button Actions
 
 
 - (IBAction)howdyButtonPressed:(UIButton *)sender{
@@ -140,22 +144,33 @@
     NSLog(@"duration: %f", _player.duration);
 }
 
-
-- (IBAction)playBackButtonPressed:(UIButton *)sender
+- (IBAction)shareVoiceMail:(UIButton *)sender
 {
-    //    [SimpleAudioPlayer playFile:_recorder.url.description];
-    NSError* error = nil;
-    
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:&error];
-    _player.volume = 1.0f;
-    _player.numberOfLoops = 0;
-    _player.delegate = self;
-    [_player play];
-    NSLog(@"duration: %f", _player.duration);
-    
-    
-    
+    [self emailVoiceMail];
 }
+
+
+- (IBAction)emailVMButtonTapped:(UIButton *)sender {
+    [self emailVoiceMail];
+}
+
+- (IBAction)pushVMButtonTapped:(UIButton *)sender {
+    [self pushVoiceMessage];
+}
+
+
+//- (IBAction)playBackButtonPressed:(UIButton *)sender
+//{
+//    //    [SimpleAudioPlayer playFile:_recorder.url.description];
+//    NSError* error = nil;
+//    
+//    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:&error];
+//    _player.volume = 1.0f;
+//    _player.numberOfLoops = 0;
+//    _player.delegate = self;
+//    [_player play];
+//    NSLog(@"duration: %f", _player.duration);
+//}
 
 
 
@@ -245,6 +260,10 @@
 
 
 - (IBAction)sendMesssage:(UIButton *)sender {
+}
+
+-(void) pushVoiceMessage
+{
  
     NSURL *shareUrl = self.recorder.url;
     NSData *dataToSend = [[NSData alloc] initWithContentsOfURL:shareUrl];
@@ -297,10 +316,7 @@
 
 #pragma mark - Emailing Methods
 
-- (IBAction)shareVoiceMail:(UIButton *)sender
-{
-    [self emailVoiceMail];
-}
+
 
 -(void) emailVoiceMail
 {
@@ -381,32 +397,43 @@
 
 -(void) setupControllerButtons
 {
+    //Create and draw Icons
     FAKFontAwesome *playIcon = [FAKFontAwesome playIconWithSize:40];
+    FAKFontAwesome *emailIcon = [FAKFontAwesome envelopeOIconWithSize:40];
+    FAKFontAwesome *iPhoneIcon = [FAKFontAwesome mobileIconWithSize:50];
 
-    FAKFontAwesome *iPhoneIcon = [FAKFontAwesome mobileIconWithSize:30];
-    FAKFontAwesome *emailIcon = [FAKFontAwesome envelopeOIconWithSize:30];
-
-    //UIImage *playIconImage = [playIcon imageWithSize:CGSizeMake(40, 40)];
-    //self.playBackImage = [[UIImageView alloc] ini];
-
-    
-    //Play Back
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.playBackView bounds].size.width, [self.playBackView bounds].size.height)];
-    [circleLayer setPosition:CGPointMake([self.playBackView bounds].size.width/2.0f,
-                                         [self.playBackView bounds].size.height/2.0f)];
-    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0.0f, 0.0f, [self.playBackView bounds].size.width, [self.playBackView bounds].size.height)];
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[[UIColor purpleMagic] CGColor]];
-    [circleLayer setLineWidth:2.0f];
-    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
-    [[self.playBackView layer] addSublayer:circleLayer];
-    
-    
     playIcon.drawingBackgroundColor = [UIColor clearColor];
-    [playIcon addAttribute:NSForegroundColorAttributeName value:[UIColor darkSilver]];
+    [playIcon addAttribute:NSForegroundColorAttributeName value:[UIColor purpleMagic]];
     self.playBackImageView.image = [playIcon imageWithSize:self.playBackImageView.frame.size];
+    [self drawCircleInView:self.playBackView withColor:[UIColor purpleMagic]];
     
+    emailIcon.drawingBackgroundColor = [UIColor clearColor];
+    [emailIcon addAttribute:NSForegroundColorAttributeName value:[UIColor purpleLight]];
+    self.emailVMImageView.image = [emailIcon imageWithSize:self.emailVMImageView.frame.size];
+    [self drawCircleInView:self.emailVMView withColor:[UIColor purpleLight]];
+    
+    
+    iPhoneIcon.drawingBackgroundColor = [UIColor clearColor];
+    [iPhoneIcon addAttribute:NSForegroundColorAttributeName value:[UIColor purpleOcean]];
+    self.pushVMImageView.image = [iPhoneIcon imageWithSize:self.pushVMImageView.frame.size];
+    [self drawCircleInView:self.pushVMView withColor:[UIColor purpleOcean]];
+
+}
+
+-(void) drawCircleInView: (UIView *)view withColor:(UIColor *)color
+{
+    
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [view bounds].size.width, [view bounds].size.height)];
+    [circleLayer setPosition:CGPointMake([view bounds].size.width/2.0f,
+                                         [view bounds].size.height/2.0f)];
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0.0f, 0.0f, [view bounds].size.width, [view bounds].size.height)];
+    [circleLayer setPath:[path CGPath]];
+    [circleLayer setStrokeColor:[color CGColor]];
+    [circleLayer setLineWidth:3.0f];
+    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
+    [[view layer] addSublayer:circleLayer];
+
 }
 
 
@@ -535,8 +562,6 @@
 - (void) testRecognitionCompleted {
 	NSLog(@"A test file that was submitted for recognition is now complete.");
 }
-
-
 
 
 
