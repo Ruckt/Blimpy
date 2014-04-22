@@ -1,1 +1,1 @@
-../../Parse-iOS-SDK/Parse.framework/Versions/1.2.18/Headers/PFSignUpViewController.h
+../../Parse-iOS-SDK/Parse.framework/Versions/1.2.19/Headers/PFSignUpViewController.h

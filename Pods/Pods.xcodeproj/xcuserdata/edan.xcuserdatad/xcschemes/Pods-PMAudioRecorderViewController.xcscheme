@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB228240FA5C41CFA7A1CBB3"
+               BlueprintIdentifier = "FB0AECF82EF44C7D8C3B9DE1"
                BuildableName = "libPods-PMAudioRecorderViewController.a"
                BlueprintName = "Pods-PMAudioRecorderViewController"
                ReferencedContainer = "container:Pods.xcodeproj">

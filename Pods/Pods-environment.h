@@ -10,7 +10,19 @@
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
 #define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 13
-#define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 0
+#define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 1
+
+// FontAwesomeKit/Core
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeKit_Core
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeKit_Core 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeKit_Core 1
+#define COCOAPODS_VERSION_PATCH_FontAwesomeKit_Core 5
+
+// FontAwesomeKit/FontAwesome
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeKit_FontAwesome
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeKit_FontAwesome 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeKit_FontAwesome 1
+#define COCOAPODS_VERSION_PATCH_FontAwesomeKit_FontAwesome 5
 
 // PMAudioRecorderViewController
 #define COCOAPODS_POD_AVAILABLE_PMAudioRecorderViewController
@@ -22,7 +34,7 @@
 #define COCOAPODS_POD_AVAILABLE_Parse_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Parse_iOS_SDK 1
 #define COCOAPODS_VERSION_MINOR_Parse_iOS_SDK 2
-#define COCOAPODS_VERSION_PATCH_Parse_iOS_SDK 18
+#define COCOAPODS_VERSION_PATCH_Parse_iOS_SDK 19
 
 // UIImage+BlurredFrame
 #define COCOAPODS_POD_AVAILABLE_UIImage_BlurredFrame

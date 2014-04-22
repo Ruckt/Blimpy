@@ -42,6 +42,7 @@ install_resource()
   esac
 }
 install_resource "Facebook-iOS-SDK/src/FBUserSettingsViewResources.bundle"
+install_resource "FontAwesomeKit/FontAwesomeKit/FontAwesome.otf"
 install_resource "PMAudioRecorderViewController/AudioNoteRecorderViewController/Images/pause.png"
 install_resource "PMAudioRecorderViewController/AudioNoteRecorderViewController/Images/pause@2x.png"
 install_resource "PMAudioRecorderViewController/AudioNoteRecorderViewController/Images/play.png"

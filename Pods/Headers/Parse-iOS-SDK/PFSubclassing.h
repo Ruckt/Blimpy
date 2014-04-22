@@ -1,1 +1,1 @@
-../../Parse-iOS-SDK/Parse.framework/Versions/1.2.18/Headers/PFSubclassing.h
+../../Parse-iOS-SDK/Parse.framework/Versions/1.2.19/Headers/PFSubclassing.h

@@ -1,6 +1,9 @@
 PODS:
-  - Facebook-iOS-SDK (3.13.0)
-  - Parse-iOS-SDK (1.2.18):
+  - Facebook-iOS-SDK (3.13.1)
+  - FontAwesomeKit/Core (2.1.5)
+  - FontAwesomeKit/FontAwesome (2.1.5):
+    - FontAwesomeKit/Core
+  - Parse-iOS-SDK (1.2.19):
     - Facebook-iOS-SDK (~> 3.7)
   - PMAudioRecorderViewController (0.5):
     - UIImage+BlurredFrame
@@ -8,15 +11,17 @@ PODS:
   - UIView+DebugQuickLook (1.0)
 
 DEPENDENCIES:
+  - FontAwesomeKit/FontAwesome
   - Parse-iOS-SDK
   - PMAudioRecorderViewController
   - UIView+DebugQuickLook
 
 SPEC CHECKSUMS:
-  Facebook-iOS-SDK: 5788541337dc88265bc940cb5ffb05915f9b64e3
-  Parse-iOS-SDK: 48bfd538a107b6e1f29eebe59fa80c0f0b844dd1
+  Facebook-iOS-SDK: 0d121e16437981fabff9379e07bf646bd5ab245c
+  FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
+  Parse-iOS-SDK: 48e366fb9a8956c4e50d93cfd16243176938fae1
   PMAudioRecorderViewController: 8112c86091224bba728b404ea2603d2b56ab8807
-  UIImage+BlurredFrame: 9f29c4796105b50742abc31a69e18e37afb080a0
+  UIImage+BlurredFrame: e604fa605955f47f24aecfbdc013efe5d5aa0b6c
   UIView+DebugQuickLook: aef933f0af8963bf2d5b848af0ef21018658b262
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1

@@ -12,6 +12,10 @@
 #import <Parse/Parse.h>
 #import "LogInViewController.h"
 #import "Constants.h"
+#import <FAKFontAwesome.h>
+#import "UIColor+Colors.h"
+
+
 //#import <UIView+DebugQuickLook.m>
 
 @interface HowdyTalkViewController () <MFMailComposeViewControllerDelegate>
@@ -20,6 +24,11 @@
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, strong) NSTimer *recordingTimer;
+
+@property (strong, nonatomic) IBOutlet UIView *playBackView;
+- (IBAction)playBackButtonTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *playBackImageView;
+
 
 @end
 
@@ -41,10 +50,17 @@
 {
     [super viewDidLoad];
     
+    [self setupControllerButtons];
+    
+    
+    
+    
+    
+    
     PFUser *currentUser = [PFUser currentUser];
     NSLog(@"%@", currentUser);
  //  PFUser *user = [PFUser logInWithUsername:@"Leroy Brown" password:@"Gene"];
-
+ //  PFUser *user = [PFUser logInWithUsername:@"Edan" password:@"jam"];
 
     if (currentUser) {
         // do stuff with the user
@@ -76,8 +92,9 @@
 
     [self associateDeviceWithUser];
     
-    [self setupNavigationBar];
-   // [self openEars];
+    // Not yet ready for these two below.
+    // [self setupNavigationBar];
+    // [self openEars];
 }
 
 
@@ -110,6 +127,20 @@
     
 }
 
+- (IBAction)playBackButtonTapped:(UIButton *)sender {
+    
+    //    [SimpleAudioPlayer playFile:_recorder.url.description];
+    NSError* error = nil;
+    
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:&error];
+    _player.volume = 1.0f;
+    _player.numberOfLoops = 0;
+    _player.delegate = self;
+    [_player play];
+    NSLog(@"duration: %f", _player.duration);
+}
+
+
 - (IBAction)playBackButtonPressed:(UIButton *)sender
 {
     //    [SimpleAudioPlayer playFile:_recorder.url.description];
@@ -121,6 +152,9 @@
     _player.delegate = self;
     [_player play];
     NSLog(@"duration: %f", _player.duration);
+    
+    
+    
 }
 
 
@@ -326,7 +360,61 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-#pragma mark Open Ears
+
+
+
+
+#pragma mark - UI setup
+
+-(void) setupNavigationBar
+{
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
+    searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
+    searchBarView.autoresizingMask = 0;
+    searchBar.delegate = self;
+    searchBar.placeholder = @"Find a Contact";
+    [searchBarView addSubview:searchBar];
+    self.navigationItem.titleView = searchBarView;
+}
+
+
+-(void) setupControllerButtons
+{
+    FAKFontAwesome *playIcon = [FAKFontAwesome playIconWithSize:40];
+
+    FAKFontAwesome *iPhoneIcon = [FAKFontAwesome mobileIconWithSize:30];
+    FAKFontAwesome *emailIcon = [FAKFontAwesome envelopeOIconWithSize:30];
+
+    //UIImage *playIconImage = [playIcon imageWithSize:CGSizeMake(40, 40)];
+    //self.playBackImage = [[UIImageView alloc] ini];
+
+    
+    //Play Back
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.playBackView bounds].size.width, [self.playBackView bounds].size.height)];
+    [circleLayer setPosition:CGPointMake([self.playBackView bounds].size.width/2.0f,
+                                         [self.playBackView bounds].size.height/2.0f)];
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0.0f, 0.0f, [self.playBackView bounds].size.width, [self.playBackView bounds].size.height)];
+    [circleLayer setPath:[path CGPath]];
+    [circleLayer setStrokeColor:[[UIColor purpleMagic] CGColor]];
+    [circleLayer setLineWidth:2.0f];
+    [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
+    [[self.playBackView layer] addSublayer:circleLayer];
+    
+    
+    playIcon.drawingBackgroundColor = [UIColor clearColor];
+    [playIcon addAttribute:NSForegroundColorAttributeName value:[UIColor darkSilver]];
+    self.playBackImageView.image = [playIcon imageWithSize:self.playBackImageView.frame.size];
+    
+}
+
+
+
+
+
+
+#pragma mark - Open Ears
 
 - (PocketsphinxController *)pocketsphinxController {
 	if (pocketsphinxController == nil) {
@@ -376,7 +464,6 @@
     
 
 }
-
 
 
 
@@ -451,18 +538,6 @@
 
 
 
-#pragma mark Navigation Bar setup
 
--(void) setupNavigationBar
-{
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
-    searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
-    searchBarView.autoresizingMask = 0;
-    searchBar.delegate = self;
-    searchBar.placeholder = @"Find a Contact";
-    [searchBarView addSubview:searchBar];
-    self.navigationItem.titleView = searchBarView;
-}
 
 @end

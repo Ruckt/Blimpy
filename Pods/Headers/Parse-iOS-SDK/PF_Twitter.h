@@ -1,1 +1,1 @@
-../../Parse-iOS-SDK/Parse.framework/Versions/1.2.18/Headers/PF_Twitter.h
+../../Parse-iOS-SDK/Parse.framework/Versions/1.2.19/Headers/PF_Twitter.h

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cxZ-3c-q55">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cxZ-3c-q55">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -97,7 +97,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D4-Pg-Ey1">
-                                <rect key="frame" x="25" y="248" width="107" height="60"/>
+                                <rect key="frame" x="127" y="154" width="107" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
@@ -110,7 +110,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQw-sR-J5Y">
-                                <rect key="frame" x="148" y="248" width="148" height="58"/>
+                                <rect key="frame" x="172" y="73" width="148" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="23"/>
@@ -123,14 +123,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxy-qw-Gl8">
-                                <rect key="frame" x="109" y="180" width="102" height="50"/>
+                                <rect key="frame" x="94" y="67" width="102" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-P0-tBR">
-                                <rect key="frame" x="82" y="100" width="156" height="63"/>
+                                <rect key="frame" x="15" y="95" width="156" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40524819536144208" green="0.77174643917997887" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="33"/>
@@ -142,12 +142,54 @@
                                     <action selector="playBackButtonPressed:" destination="0eB-kV-iPS" eventType="touchUpInside" id="sX1-C5-32p"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ys-mj-FnO">
+                                <rect key="frame" x="22.5" y="242.5" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9D-BA-Eg6">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playBackButtonTapped:" destination="0eB-kV-iPS" eventType="touchUpInside" id="NYn-eD-IGs"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-fr-F0p">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="G1M-g3-qGo"/>
+                                            <constraint firstAttribute="width" constant="75" id="XTZ-R1-TEY"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="DxL-fr-F0p" secondAttribute="centerX" id="6DT-QB-57p"/>
+                                    <constraint firstAttribute="bottom" secondItem="DxL-fr-F0p" secondAttribute="bottom" id="6dc-dL-NUe"/>
+                                    <constraint firstItem="o9D-BA-Eg6" firstAttribute="leading" secondItem="1Ys-mj-FnO" secondAttribute="leading" id="Exx-mv-egf"/>
+                                    <constraint firstAttribute="centerY" secondItem="o9D-BA-Eg6" secondAttribute="centerY" id="FT8-vu-ItB"/>
+                                    <constraint firstItem="o9D-BA-Eg6" firstAttribute="top" secondItem="1Ys-mj-FnO" secondAttribute="top" id="Kaa-lA-PQA"/>
+                                    <constraint firstAttribute="trailing" secondItem="o9D-BA-Eg6" secondAttribute="trailing" id="LDl-Lw-SnA"/>
+                                    <constraint firstAttribute="trailing" secondItem="DxL-fr-F0p" secondAttribute="trailing" id="a8R-Qw-psV"/>
+                                    <constraint firstAttribute="bottom" secondItem="o9D-BA-Eg6" secondAttribute="bottom" id="eFd-Fk-9ee"/>
+                                    <constraint firstItem="DxL-fr-F0p" firstAttribute="top" secondItem="1Ys-mj-FnO" secondAttribute="top" id="eVM-1U-LtT"/>
+                                    <constraint firstAttribute="centerX" secondItem="o9D-BA-Eg6" secondAttribute="centerX" id="h3g-BH-wMW"/>
+                                    <constraint firstItem="DxL-fr-F0p" firstAttribute="leading" secondItem="1Ys-mj-FnO" secondAttribute="leading" id="mDN-lf-bjf"/>
+                                    <constraint firstAttribute="centerY" secondItem="DxL-fr-F0p" secondAttribute="centerY" id="uR9-lQ-jOI"/>
+                                    <constraint firstItem="DxL-fr-F0p" firstAttribute="top" secondItem="1Ys-mj-FnO" secondAttribute="top" id="udp-cI-zcf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="HowdY!" id="99W-0F-P04"/>
                     <connections>
                         <outlet property="heardWordList" destination="odW-wt-IL9" id="iIm-4I-zA4"/>
+                        <outlet property="playBackImageView" destination="DxL-fr-F0p" id="oej-ma-Hcp"/>
+                        <outlet property="playBackView" destination="1Ys-mj-FnO" id="aX6-JM-a8f"/>
                         <outlet property="recordingLengthLabel" destination="Hxy-qw-Gl8" id="kVq-tJ-GeJ"/>
                         <outlet property="statusLabel" destination="ffJ-0b-cKt" id="aXz-he-DT4"/>
                     </connections>
@@ -159,7 +201,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1617" y="135"/>
+            <point key="canvasLocation" x="1333" y="127"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="xeV-QD-EOB">
@@ -221,7 +263,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhv-wo-yQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="135"/>
+            <point key="canvasLocation" x="812" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RTP-wj-MiB">

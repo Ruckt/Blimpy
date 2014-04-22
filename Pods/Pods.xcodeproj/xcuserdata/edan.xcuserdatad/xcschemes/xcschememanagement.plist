@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FontAwesomeKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PMAudioRecorderViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>034FBF74CC334B2BA16B3424</key>
+		<key>02E7E76D650441AE9ACE7D48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0602B8B17EC04ED5911A43B1</key>
+		<key>2F33CC30C37F4C5ABF05B2EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>08B831A89C6F44078C5D6493</key>
+		<key>30434D0D4A94406394830247</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7AA7DDFC84CC4A45974C7245</key>
+		<key>6DEFC712E75348A7A84A9DD0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B13E1B2240BF4C4BAD14C0DA</key>
+		<key>85E274B645634EF4892C28BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB228240FA5C41CFA7A1CBB3</key>
+		<key>96E137CC35D147E5A809A6C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB0AECF82EF44C7D8C3B9DE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,1 +1,1 @@
-../../Parse-iOS-SDK/Parse.framework/Versions/1.2.18/Headers/PFQueryTableViewController.h
+../../Parse-iOS-SDK/Parse.framework/Versions/1.2.19/Headers/PFQueryTableViewController.h
