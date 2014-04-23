@@ -45,6 +45,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *microphoneImageView;
 
 
+
 @end
 
 @implementation HowdyTalkViewController
@@ -141,17 +142,19 @@
     
     //    [SimpleAudioPlayer playFile:_recorder.url.description];
     NSError* error = nil;
-    
+
+    //Makes audio come out of main speaker
+    OSStatus result;
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    result = AudioSessionSetProperty (kAudioSessionProperty_OverrideAudioRoute, sizeof (audioRouteOverride), &audioRouteOverride);
+
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:&error];
     _player.volume = 1.0f;
     _player.numberOfLoops = 0;
     _player.delegate = self;
     [_player play];
     NSLog(@"duration: %f", _player.duration);
-}
-
-- (IBAction)shareVoiceMail:(UIButton *)sender{
-    [self emailVoiceMail];
+    
 }
 
 - (IBAction)emailVMButtonTapped:(UIButton *)sender {
@@ -168,6 +171,7 @@
 - (IBAction)longPressed:(UILongPressGestureRecognizer *)gesture  {
     if(UIGestureRecognizerStateBegan == gesture.state) {
         NSLog(@"Gesture state began");
+        self.recordLabel.layer.borderColor = [UIColor purpleOcean].CGColor;
         [self startRecording];
     }
     
@@ -176,6 +180,7 @@
     
     if(UIGestureRecognizerStateEnded == gesture.state) {
         NSLog(@"Gesture state ended");
+        self.recordLabel.layer.borderColor = [UIColor purpleLight].CGColor;
         [self stopRecording];
      }
 }
@@ -286,8 +291,8 @@
     NSLog(@"%@", voiceMailID);
     
     PFQuery *userQuery = [PFUser query];
-    [userQuery whereKey:@"username" containsString:@"Leroy Brown"];
-//    [userQuery whereKey:@"username" containsString:@"Edan"];
+   // [userQuery whereKey:@"username" containsString:@"Leroy Brown"];
+   [userQuery whereKey:@"username" containsString:@"Edan"];
     //NSLog(@"%@",[userQuery getFirstObject]);
     
   

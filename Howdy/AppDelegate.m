@@ -71,7 +71,7 @@
     [self saveContext];
 }
 
-#pragma mark Parse Related Methods
+#pragma mark - Parse Related Methods
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)vmInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
 
@@ -89,6 +89,11 @@
     [query getObjectInBackgroundWithId:(@"%@", voiceMailID) block:^(PFObject *voiceMail, NSError *error) {
         // Do something with the returned PFObject in the gameScore variable.
        // NSLog(@"%@", voiceMail);
+        
+        //Methods to use main speaker
+        OSStatus result;
+        UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+        result = AudioSessionSetProperty (kAudioSessionProperty_OverrideAudioRoute, sizeof (audioRouteOverride), &audioRouteOverride);
         
         NSData *soundData = [voiceMail objectForKey:@"Audio_File"];
         
@@ -145,6 +150,7 @@
     [PFPush handlePush:userInfo];
 }
 
+#pragma mark - Save Context
 
 - (void)saveContext
 {
